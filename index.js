@@ -3,6 +3,48 @@ const express = require('express');
 const mongoose = require("mongoose");
 const cors = require('cors');
 const bodyParser = require("body-parser");
+const app = express();
+const userRoute = require('./routes/userRoute');
+
+
+
+
+
+
+
+// middleweare
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+
+
+
+// routes middleweare
+
+
+app.use('/api/user',userRoute)
+
+
+
+
+
+
+
+// Routes
+app.get('/', (req, res) => {
+    res.send("hello world")
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 mongoose.set('strictQuery',true)
@@ -20,7 +62,6 @@ try {
 
 
 
-const app = express()
 
 
 
